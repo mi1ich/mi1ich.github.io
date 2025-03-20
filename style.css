@@ -1,0 +1,162 @@
+/* общее */
+
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    font-family: Segoe UI;
+}
+
+body {
+    background-color: #eef4ff;
+}
+
+main {
+    padding: 23px 28px;
+}
+
+
+.header {
+    background-color: #3080ee;
+}
+
+.header h1 {
+    color: white;
+    padding: 25px 35px;
+}
+
+/* добавление задачи */
+
+.new-task {
+    border-radius: 10px;
+    background: white;
+    padding: 20px;
+    width: fit-content;
+}
+
+.new-task h1 {
+    background-color: white;
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.new-task .bottom-group {
+    background-color: white;
+    display: flex;
+    gap: 20px;
+}
+
+.new-task input[type=text] {
+    border-radius: 10px;
+    outline: none;
+    padding: 10px;
+    font-size: 15px;
+    color: #e4e1e1;
+    background-color: white;
+    border: 1px solid #e4e1e1;
+}
+
+.new-task input[type=text]::placeholder {
+    font-size: 15px;
+    color: #e4e1e1;
+}
+
+.new-task button {
+    background-color: #3080ee;
+    color: white;
+    border-radius: 10px;
+    padding: 15px 40px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    border: 0;
+}
+
+.new-task button:hover {
+    background-color: #0055b5;
+}
+
+/* область с задачами */
+
+.tasks-list {
+    margin-top: 35px;
+    display: flex;
+    column-gap: 50px;
+}
+
+.tasks-list h3 {
+    padding: 10px 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-weight: 500;
+    width: fit-content;
+}
+
+.tasks-list li {
+    list-style-type: none;
+    font-weight: 600;
+    font-size: 15px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    margin: 10px 0;
+}
+
+.tasks {
+    flex: 1 1 auto;
+}
+
+/* задача */
+
+.backlog h3 {
+    background-color: gray;
+    color: white;
+}
+
+.backlog li {
+    border-left: 5px solid gray;
+}
+
+.inprocess h3 {
+    background-color: #3080ee;
+    color: white;
+}
+
+.inprocess li {
+    border-left: 5px solid #3080ee;
+}
+
+.completed h3 {
+    background-color: green;
+    color: white;
+}
+
+.completed li {
+    border-left: 5px solid green;
+}
+
+.trash h3 {
+    background-color: #c9666c;
+    color: white;
+}
+
+.trash li {
+    border-left: 5px solid #c9666c;
+}
+
+/* кнопка очистки */
+
+.btn-clear {
+    background-color: #c9666c;
+    color: white;
+    padding: 15px 0;
+    border: 0px;
+    border-radius: 10px;
+    width: 100%;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.btn-clear:hover {
+    background-color: #b3464d;
+}
