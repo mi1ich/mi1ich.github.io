@@ -1,55 +1,20 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="style.css" type="text/css" rel="stylesheet">
-    <title>Todo-list Gadzhiev Artur Emilevich</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Список задач</title>
 </head>
-<body>
-    <header class="header">
-        <h1>Список задач</h1>
-    </header>
-    <main>
-        <div class="new-task">
-            <h1>Новая задача</h1>
-            <div class="bottom-group">
-                <input placeholder="Название задачи..." type="text">
-                <button>+ Добавить</button>
-            </div>
-        </div>
-        <div class="tasks-list">
-            <div class="tasks backlog">
-                <h3>Бэклог</h3>
-                <ul>
-                    <li>Выучить JS</li>
-                    <li>Выучить React</li>
-                    <li>Сделать домашку</li>
-                </ul>
-            </div>
-            <div class="tasks inprocess">
-                <h3>В процессе</h3>
-                <ul>
-                    <li>Выпить смузи</li>
-                    <li>Попить воды</li>
-                </ul>
-            </div>
-            <div class="tasks completed">
-                <h3>Готово</h3>
-                <ul>
-                    <li>Позвонить маме</li>
-                    <li>Погладить кота</li>
-                </ul>
-            </div>
-            <div class="tasks trash">
-                <h3>Корзина</h3>
-                <ul>
-                    <li>Сходить погулять</li>
-                    <li>Прочитать Войну и Мир</li>
-                </ul>
-                <button class="btn-clear" type="button">✕ Очистить</button>
-            </div>
-        </div>
-    </main>
+<body class="board-app">
+  <main class="board-app__main">
+    <div class="board-app__inner">
+      <section class="add-task">
+      </section>
+      <section class="taskboard">
+      </section>
+    </div>
+  </main>
+  <script src="src/main.js" type="module"></script>
 </body>
 </html>
