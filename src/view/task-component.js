@@ -1,4 +1,4 @@
-import {createElement} from './render.js';
+import {createElement} from '../framework/render.js';
 
 function createTaskTemplate() {
   return `<li>Название первой задачи</li>`;
