@@ -1,5 +1,5 @@
 import HeaderComponent from './view/header-component.js';
-import AddNewTaskComponent from '.view/addnewtask-component.js';
+import AddNewTaskComponent from './view/addnewtask-component.js';
 import {render, RenderPosition} from './framework/render.js';
 
 const bodyContainer = document.querySelector('.board-app');
