@@ -7,7 +7,7 @@ import {render, RenderPosition} from './framework/render.js';
 
 const bodyContainer = document.querySelector('.board-app');
 const formContainer = document.querySelector('.add-task');
-const boardContainer = document.querySelector('board-app__main');
+const boardContainer = document.querySelector('.board-app__main');
 
 render(new HeaderComponent(), bodyContainer, RenderPosition.BEFOREBEGIN);
 render(new AddNewTaskComponent(), formContainer);
