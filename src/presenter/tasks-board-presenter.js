@@ -3,19 +3,23 @@ import TasksListComponent from "../view/taskslist-component.js";
 import { render } from "../framework/render.js";
 
 export default class TasksBoardPresenter {
-    tasksBoardComponent = new TaskBoardComponent();
-    taskListComponent = new TasksListComponent();
+    #tasksBoardComponent = new TaskBoardComponent();
+    #boardContainer = null;
+    #tasksModel = null;
+    #boardTasks = [];
 
-    constructor({boardContainer}) {
-        this.boardContainer = boardContainer;
+    constructor({boardContainer, tasksModel}) {
+        this.#boardContainer = boardContainer;
+        this.#tasksModel = tasksModel;
     }
 
     init() {
-        render(this.taskBoardComponent, this.boardContainer);
+        this.#boardTasks = [...this.#tasksModel.getTasks()];
+        render(this.#taskBoardComponent, this.#boardContainer);
         for (let i = 0; i < 4; i++) {
             const tasksListComponent = new TasksListComponent();
-            render(tasksListComponent, this.tasksBoardComponent.getElement());
-            for (let j = 0; j < 4; j++) {
+            render(tasksListComponent, this.#tasksBoardComponent.getElement());
+            for (let j = 0; j < this.#boardTasks.length; j++) {
                 const taskComponent = new TaskComponent();
                 render(taskComponent, tasksListComponent.getElement());
             }
