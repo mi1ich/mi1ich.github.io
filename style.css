@@ -75,11 +75,11 @@ header h1 {
     column-gap: 50px;
 }
 
-.tasks-list {
+.display-tasks-list {
     flex: 1 1 auto;
 }
 
-.tasks-list h3 {
+.display-tasks-list h3 {
     padding: 10px 15px;
     border-radius: 10px;
     background-color: #e3e3e3;
@@ -89,7 +89,7 @@ header h1 {
     width: fit-content;
 }
  
-.tasks-list li {
+.display-tasks-list li {
     list-style-type: none;
     font-weight: 500;
     font-size: 15px;
