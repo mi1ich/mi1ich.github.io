@@ -1,62 +1,64 @@
+import { Status } from "../const.js";
+
 export const tasks = [
   {
     id: "1",
     title: "Сходить в магаз",
-    status: "backlog"
+    status: Status.BACKLOG
   },
   {
     id: "2",
     title: "Пойти погулять",
-    status: "backlog"
+    status: Status.BACKLOG
   },
   {
     id: "3",
     title: "Устроиться на работу",
-    status: "backlog"
+    status: Status.BACKLOG
   },
   {
     id: "4",
     title: "Выучить JS",
-    status: "processing"
+    status: Status.PROCESSING
   },
   {
     id: "5",
     title: "Выучить React",
-    status: "processing"
+    status: Status.PROCESSING
   },
   {
     id: "6",
     title: "Создать приложение на Vue.js",
-    status: "processing"
+    status: Status.PROCESSING
   },
   {
     id: "7",
     title: "Разработать сервер на .NET (C#)",
-    status: "done"
+    status: Status.DONE
   },
   {
     id: "8",
     title: "Настроить маршрутизацию в React",
-    status: "done"
+    status: Status.DONE
   },
   {
     id: "9",
     title: "Оптимизировать код на Vue.js",
-    status: "basket"
+    status: Status.BASKET
   },
   {
     id: "10",
     title: "Удалить ненужные файлы",
-    status: "basket"
+    status: Status.BASKET
   },
   {
     id: "11",
     title: "Очистить базу данных",
-    status: "basket"
+    status: Status.BASKET
   },
   {
     id: "12",
     title: "Изучить архитектуру .NET Core",
-    status: "basket"
+    status: Status.BASKET
   }
 ]
