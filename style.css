@@ -100,3 +100,39 @@ header h1 {
     border-radius: 10px;
     margin: 10px 0;
 }
+
+.backlog h3 {
+    background-color: gray;
+    color: white;
+}
+
+.backlog li {
+    border-left: 5px solid gray;
+}
+
+.processing h3 {
+    background-color: #3080ee;
+    color: white;
+}
+
+.processing li {
+    border-left: 5px solid #3080ee;
+}
+
+.done h3 {
+    background-color: green;
+    color: white;
+}
+
+.done li {
+    border-left: 5px solid green;
+}
+
+.basket h3 {
+    background-color: #c9666c;
+    color: white;
+}
+
+.basket li {
+    border-left: 5px solid #c9666c;
+}
