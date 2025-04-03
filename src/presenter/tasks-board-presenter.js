@@ -4,7 +4,7 @@ import TaskBoardComponent from "../view/taskboard-component.js";
 import { render } from "../framework/render.js";
 
 export default class TasksBoardPresenter {
-    #tasksBoardComponent = new TaskBoardComponent();
+    #taskBoardComponent = new TaskBoardComponent();
     #boardContainer = null;
     #tasksModel = null;
     #boardTasks = [];
@@ -19,7 +19,7 @@ export default class TasksBoardPresenter {
         render(this.#taskBoardComponent, this.#boardContainer);
         for (let i = 0; i < 4; i++) {
             const tasksListComponent = new TasksListComponent();
-            render(tasksListComponent, this.#tasksBoardComponent.getElement());
+            render(tasksListComponent, this.#taskBoardComponent.getElement());
             for (let j = 0; j < this.#boardTasks.length; j++) {
                 const taskComponent = new TaskComponent();
                 render(taskComponent, tasksListComponent.getElement());
