@@ -17,12 +17,12 @@ export default class TasksBoardPresenter {
     init() {
         this.#boardTasks = [...this.#tasksModel.getTasks()];
         render(this.#taskBoardComponent, this.#boardContainer);
-        for (let i = 0; i < 4; i++) {
-            const tasksListComponent = new TasksListComponent();
-            render(tasksListComponent, this.#taskBoardComponent.getElement());
-            for (let j = 0; j < this.#boardTasks.length; j++) {
-                const taskComponent = new TaskComponent();
-                render(taskComponent, tasksListComponent.getElement());
+        for (const tasksList of this.#boardTasks) {
+            const status = tasksList.status;
+            const tlist = new TasksListComponent({status});
+            render(tlist, this.#taskBoardComponent.getElement());
+            for (const task of tasksList.taskslist) {
+                render(new TaskComponent({task: task}), tlist.getElement('.tasks'));
             }
         }
     }
