@@ -22,7 +22,7 @@ export default class TasksBoardPresenter {
             const tlist = new TasksListComponent({status});
             render(tlist, this.#taskBoardComponent.getElement());
             for (const task of tasksList.taskslist) {
-                render(new TaskComponent({task: task}), tlist.getElement('.tasks'));
+                render(new TaskComponent({task: task}), tlist.getElement().querySelector('.tasks'));
             }
         }
     }
