@@ -2,7 +2,7 @@ import {createElement} from '../framework/render.js';
 
 function createClearButtonComponentTemplate() {
     return (
-        `<button class"clear-button">✕ Очистить</button>`
+        `<button class="clear-button">✕ Очистить</button>`
       );
 }
 
