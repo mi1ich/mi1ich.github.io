@@ -1,6 +1,7 @@
 import TaskComponent from "../view/task-component.js";
 import TasksListComponent from "../view/taskslist-component.js";
 import TaskBoardComponent from "../view/taskboard-component.js";
+import ClearButtonComponent from "../view/clearbutton-component.js";
 import { render } from "../framework/render.js";
 
 export default class TasksBoardPresenter {
@@ -24,6 +25,10 @@ export default class TasksBoardPresenter {
             for (const task of tasksList.taskslist) {
                 render(new TaskComponent({task: task}), tlist.getElement().querySelector('.tasks'));
             }
+        }
+        const basketContainer = document.querySelector('.basket');
+        if (basketContainer) {
+            render(new ClearButtonComponent(), basketContainer);
         }
     }
 }
