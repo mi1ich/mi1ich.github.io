@@ -136,3 +136,18 @@ header h1 {
 .basket li {
     border-left: 5px solid #c9666c;
 }
+
+.clear-button {
+    background-color: #c9666c;
+    color: white;
+    padding: 15px 0;
+    border: 0px;
+    border-radius: 10px;
+    width: 100%;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.clear-button:hover {
+    background-color: #b3464d;
+}
