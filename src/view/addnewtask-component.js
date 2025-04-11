@@ -1,4 +1,4 @@
-import {createElement} from '../framework/render.js';
+import AbstractComponent from "../framework/view/abstract-component.js";
 
 function createAddNewTaskComponentTemplate() {
     return (
@@ -21,20 +21,9 @@ function createAddNewTaskComponentTemplate() {
       );
 }
 
-export default class AddNewTaskComponent {
-  getTemplate() {
-    return createAddNewTaskComponentTemplate();
-  }
 
-  getElement() {
-    if (!this.element) {
-      this.element = createElement(this.getTemplate());
+export default class AddNewTaskComponent extends AbstractComponent {
+    get template() {
+        return createAddNewTaskComponentTemplate();
     }
-
-    return this.element;
-  }
-
-  removeElement() {
-    this.element = null;
-  }
 }
