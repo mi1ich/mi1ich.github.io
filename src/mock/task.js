@@ -2,7 +2,7 @@ import { Status } from "../const.js";
 
 export const tasks = [
   {
-    taskslist: ["Сходить в магаз", "Пойти погулять", "Устроиться на работу"],
+    taskslist: [/*"Сходить в магаз", "Пойти погулять", "Устроиться на работу"*/],
     status: Status.BACKLOG
   },
   {
