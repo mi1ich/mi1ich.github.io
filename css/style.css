@@ -121,6 +121,7 @@ header h1 {
     width: 100%;
     font-weight: bold;
     font-size: 15px;
+    cursor: pointer;
 }
 
 .clear-button:hover {
