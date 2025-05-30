@@ -162,3 +162,7 @@ header h1 {
 .basket li {
     border-left: 5px solid #c9666c;
 }
+
+.board-no-task {
+    font-size: 30px;
+}
