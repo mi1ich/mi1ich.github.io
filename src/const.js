@@ -1,8 +1,8 @@
 const Status = {
-  BACKLOG: `backlog`,
-  PROCESSING: `processing`,
-  DONE: `done`,
-  BASKET: `basket`
+    BACKLOG: `backlog`,
+    PROCESSING: `processing`,
+    DONE: `done`,
+    BASKET: `basket`
 };
 
 const StatusLabel = {
@@ -10,6 +10,13 @@ const StatusLabel = {
     [Status.PROCESSING]: `В процессе`,
     [Status.DONE]: `Готово`,
     [Status.BASKET]: `Корзина`
-};
+}
 
-export {Status, StatusLabel};
+const OrderPosition = { 
+    START: `start`,
+    END: `end`,
+    BELOW: `below`,
+    ABOVE: `above`
+}
+
+export {Status, StatusLabel, OrderPosition};
