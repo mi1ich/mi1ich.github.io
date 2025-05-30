@@ -1,25 +1,28 @@
-import {createElement} from '../framework/render.js';
+import AbstractComponent from "../framework/view/abstract-component.js";
 
-function createClearButtonComponentTemplate() {
+function createClearButtonTemplate() {
     return (
-        `<button class="clear-button">✕ Очистить</button>`
-      );
+        `
+        <button class="clear-button" type='submit'>Очистить</button>
+        `
+    )
 }
 
-export default class ClearButtonComponent {
-  getTemplate() {
-    return createClearButtonComponentTemplate();
-  }
+export default class ClearButtonComonent extends AbstractComponent {
+    #handleClick = null;
 
-  getElement() {
-    if (!this.element) {
-      this.element = createElement(this.getTemplate());
+    constructor({onClick}) {
+        super();
+        this.#handleClick = onClick;
+        this.element.addEventListener('click', this.#clearHandler);
     }
 
-    return this.element;
-  }
+    get template() {
+        return createClearButtonTemplate();
+    }
 
-  removeElement() {
-    this.element = null;
-  }
+    #clearHandler = (evt) => {
+        evt.preventDefault();
+        this.#handleClick();
+    }
 }
