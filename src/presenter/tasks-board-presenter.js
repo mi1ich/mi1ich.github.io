@@ -4,7 +4,7 @@ import TaskBoardComponent from "../view/taskboard-component.js";
 import TasksListComponent from "../view/taskslist-component.js";
 import EmptyComponent from "../view/empty-component.js";
 import LoadingViewComponent from "../view/loading-view-component.js";
-import { UserAction } from "../const.js";
+import { UserAction, StatusLabel } from "../const.js";
 
 export default class TasksBoardPresenter {
     #loadingComponent = new LoadingViewComponent();
@@ -35,9 +35,12 @@ export default class TasksBoardPresenter {
         }
 
         render(this.#taskDeskComponent, this.#boardContainer);
-        
-        this.#boardtasks.forEach((taskList) => {
-            this.#renderTaskList(taskList.status, taskList.tasks);
+
+        const allStatuses = Object.keys(StatusLabel);
+
+        allStatuses.forEach((status) => {
+            const tasksForStatus = this.#boardtasks.find(taskList => taskList.status === status)?.tasks || [];
+            this.#renderTaskList(status, tasksForStatus);
         });
 
         this.#renderClearButton();
@@ -68,12 +71,11 @@ export default class TasksBoardPresenter {
 
     #renderTaskList(status, tasks) {
         const list = new TasksListComponent(status, this.#handleTaskDrop.bind(this));
-
         render(list, this.#taskDeskComponent.element);
 
-        tasks.length === 0 ? this.#renderEmptyComponent(list) : tasks.forEach((task) => {
-            this.#renderTask(task, list);
-        });
+        tasks.length === 0 
+            ? this.#renderEmptyComponent(list) 
+            : tasks.forEach((task) => this.#renderTask(task, list));
 
         this.#loadingComponent.element.style = 'display: none;';
     }
