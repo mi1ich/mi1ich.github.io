@@ -16,56 +16,36 @@ export default class TasksModel extends Observable {
             const tasks = await this.#tasksApiServices.tasks;
             this.#boardtasks = this.returnParsedTask(tasks);
         } catch (err) {
-            this.#boardtasks = [];
-        }
-
-        if (!this.hasBascketTasks()) {
-            this.#boardtasks.push({
-                status: Status.BASKET,
+            this.#boardtasks = Object.values(Status).map(status => ({
+                status,
                 tasks: []
-            });
+            }));
         }
 
         this._notify(UpdateType.INIT);
     }
 
     returnParsedTask(tasks) {
-        const parsedTasks = [];
-        
-        while (tasks.length != 0) {
-            const statusTasks = tasks[0].status;
-            const tasksByStatus = tasks.filter(f => f.status === statusTasks);
-            tasks = tasks.filter(f => f.status !== statusTasks);
+        const allStatuses = Object.values(Status);
+        const parsedTasks = allStatuses.map(status => ({
+            status,
+            tasks: []
+        }));
 
-            const newElementToParsedTasks = {
-                status: statusTasks,
-                tasks: []
-            }
-
-            for (const task of tasksByStatus) {
-                newElementToParsedTasks.tasks.push({
+        for (const task of tasks) {
+            const statusGroup = parsedTasks.find(group => group.status === task.status);
+            if (statusGroup) {
+                statusGroup.tasks.push({
                     id: task.id,
                     title: task.title,
                     orderInStatus: task.orderInStatus
                 });
             }
-
-            newElementToParsedTasks.tasks.sort((a, b) => {
-                const orderA = a.orderInStatus;
-                const orderB = b.orderInStatus;
-
-                if (orderA < orderB) {
-                    return -1;
-                }
-                else if (orderA > orderB) {
-                    return 1;
-                }
-                else {
-                    return 0;
-                }
-            });
-            parsedTasks.push(newElementToParsedTasks);
         }
+
+        parsedTasks.forEach(group => {
+            group.tasks.sort((a, b) => a.orderInStatus - b.orderInStatus);
+        });
 
         this.#normolize(parsedTasks);
         return parsedTasks;
@@ -93,7 +73,12 @@ export default class TasksModel extends Observable {
     }
 
     getTasksByStatus(status) {
-        return this.#boardtasks.filter(f => f.status === status)[0];
+        let statusGroup = this.#boardtasks.find(f => f.status === status);
+        if (!statusGroup) {
+            statusGroup = { status, tasks: [] };
+            this.#boardtasks.push(statusGroup);
+        }
+        return statusGroup;
     }
 
     getTaskInfoById(taskId) {
